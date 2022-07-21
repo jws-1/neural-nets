@@ -85,6 +85,22 @@ matrix* scalar_multiply_matrix(matrix* mat, double factor)
     return out; 
 }
 
+matrix* hadamard_multiply_matrix(matrix* a, matrix* b)
+{
+    matrix* out = init_matrix(a->rows, a->cols);
+
+    for (int i = 0; i < a->rows; ++i)
+    {
+        for (int j = 0; j < a->cols; ++j)
+        {
+            set(out, i, j, get(a, i, j) * get(b, i, j));
+        }
+    }
+
+    return out;
+
+}
+
 void print_matrix(matrix* mat)
 {
     for (int i = 0; i < mat->rows; ++i)
