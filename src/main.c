@@ -2,16 +2,19 @@
 #include <stdio.h>
 int main(int argc, char** argv)
 {
-    matrix* mat = init_matrix(5, 3);
-    set(mat, 0, 0, 69.69);
-    set(mat, 1, 1, 69.22);
-    set(mat, 2, 2, 33.22);
-    print_matrix(mat);
-    // free_matrix(mat);
-    printf("\n\n\n\n\n");
+    matrix* mat = init_matrix(3, 2);
+    set(mat, 0, 0, 1);
+    set(mat, 0, 1, 2);
+    set(mat, 1, 0, 3);
+    set(mat, 1, 1, 4);
+    set(mat, 2, 0, 5);
+    set(mat, 2, 1, 1);
 
-    matrix* tmat = transpose_matrix(mat);
+    matrix* mat1 = init_matrix(2, 1);
+    set(mat1, 0, 0, 2);
+    set(mat1, 1, 0, 4);
 
-    // matrix* mat1 = init_matrix(10, 5);
-    print_matrix(tmat);
+    matrix* product = multiply_matrix(mat, mat1);
+
+    print_matrix(product);
 }

@@ -54,13 +54,16 @@ matrix * add_matrices(matrix* a, matrix* b)
 
 matrix * multiply_matrix(matrix* a, matrix* b)
 {
-    matrix* out = init_matrix(a->rows, a->cols);
+    matrix* out = init_matrix(a->rows, b->cols);
 
     for (int i = 0; i < a->rows; ++i)
     {
-        for (int j = 0; j < a->cols; ++j)
+        for (int j = 0; j < b->cols; ++j)
         {
-            set(a, i, j, get(a, i, j) * get(b, i, j));
+            for (int k = 0; k < b->rows; ++k)
+            {
+                set(out, i, j, get(out, i, j) + (get(a, i, k) * get(b, k, j)));
+            }
         }
     }
 
